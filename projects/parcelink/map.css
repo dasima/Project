@@ -1,0 +1,119 @@
+.route-map {
+  position: relative;
+  height: 330px;
+  min-height: 330px;
+  overflow: hidden;
+  isolation: isolate;
+  background: #eaf1f6;
+  color: #162a43;
+}
+
+.route-map .map-illustration {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 330px;
+  transform-origin: 55% 52%;
+  transition: transform 350ms cubic-bezier(.2, .7, .2, 1);
+}
+
+.route-map .map-graticule {
+  fill: none;
+  stroke: #cddce7;
+  stroke-width: .7;
+  opacity: .46;
+}
+
+.route-map .map-land {
+  fill: #f9fbfc;
+  stroke: #fff;
+  stroke-width: 1.8;
+  stroke-linejoin: round;
+}
+
+.route-map .map-land--china { fill: #f9fbfd; }
+.route-map .map-land--laos,
+.route-map .map-land--cambodia,
+.route-map .map-land--borneo { fill: #f5f8fa; }
+.route-map .map-inland-lines { fill: none; stroke: #e8edf1; stroke-width: 1; }
+.route-map .map-country-labels { fill: #9caab6; font: 11px -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; letter-spacing: 2px; text-anchor: middle; }
+.route-map .map-country-label--china { font-size: 16px; letter-spacing: 8px; fill: #a0aeb9; }
+.route-map .map-small-country-label { font-size: 9px; letter-spacing: 1px; }
+.route-map .map-city-labels { fill: #a4b2be; font: 9px -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; }
+.route-map .map-city-labels circle { fill: #b0bec9; }
+.route-map .map-sea-label { fill: #a8bdcc; text-anchor: middle; font: 15px -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; letter-spacing: 10px; }
+.route-map .map-sea-label .map-sea-label-en { font-size: 7px; letter-spacing: 2px; fill: #a9bdcc; }
+.route-map .map-route-halo { fill: none; stroke: #fff; stroke-width: 7; stroke-linecap: round; opacity: .6; }
+.route-map .map-route-remaining { fill: none; stroke: #8da9c5; stroke-width: 2.1; stroke-linecap: round; stroke-dasharray: 4 7; }
+.route-map .map-route-traveled { fill: none; stroke: #2664eb; stroke-width: 3.1; stroke-linecap: round; }
+.route-map .map-origin-ring,
+.route-map .map-destination-ring { fill: #fff; stroke: #2664eb; stroke-width: 2; }
+.route-map .map-origin-core { fill: #2664eb; }
+.route-map .map-destination-core { fill: #2664eb; }
+.route-map .map-endpoint-label { paint-order: stroke; stroke: #f6f9fc; stroke-width: 4; stroke-linejoin: round; }
+.route-map .map-city-name { fill: #263f59; font: 600 12px -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; }
+.route-map .map-city-code { fill: #8496a7; font: 500 8px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; letter-spacing: 1px; }
+.route-map .map-position-aura { fill: #2664eb; opacity: .05; }
+.route-map .map-position-pulse { fill: #2664eb; opacity: .1; animation: route-map-pulse 3s ease-out infinite; transform-origin: 0 0; }
+.route-map .map-position-disc { fill: #2664eb; stroke: #fff; stroke-width: 3; }
+.route-map .map-position-icon { color: #fff; }
+
+.route-map .map-location-card {
+  position: absolute;
+  top: 22px;
+  left: 22px;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  width: min(225px, calc(100% - 100px));
+  padding: 15px 17px 15px 14px;
+  border: 1px solid rgba(255, 255, 255, .95);
+  border-radius: 11px;
+  box-shadow: 0 5px 22px #23496a0a, 0 1px 3px #23496a08;
+  background: #fffffff5;
+  box-sizing: border-box;
+}
+
+.route-map .map-location-symbol { flex: 0 0 37px; width: 37px; height: 37px; display: grid; place-items: center; border-radius: 10px; color: #2664eb; background: #edf3ff; }
+.route-map .map-location-copy { display: flex; min-width: 0; flex-direction: column; align-items: flex-start; gap: 5px; }
+.route-map .map-location-eyebrow { color: #8997a9; font-size: 10px; line-height: 1.2; }
+.route-map .map-location-copy strong { max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 12px; font-weight: 600; line-height: 1.3; }
+.route-map .map-location-detail { display: flex; align-items: center; gap: 6px; color: #8c9aaa; font-size: 9px; white-space: nowrap; line-height: 1.2; }
+.route-map .map-location-detail i { display: inline-block; width: 2px; height: 2px; border-radius: 50%; background: #b1bdca; }
+.route-map .map-location-dot { position: absolute; right: 13px; top: 13px; width: 5px; height: 5px; border-radius: 50%; background: #2664eb; box-shadow: 0 0 0 3px #eef3ff; }
+.route-map .map-north { position: absolute; top: 23px; right: 25px; display: flex; flex-direction: column; align-items: center; gap: 4px; color: #8d9eae; font: 600 8px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+.route-map .map-legend { position: absolute; left: 21px; bottom: 20px; display: flex; gap: 16px; padding: 9px 11px; background: #ffffffd9; border: 1px solid #ffffffb8; border-radius: 6px; color: #7e90a2; font-size: 9px; line-height: 1; }
+.route-map .map-legend span { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
+.route-map .map-legend i { display: inline-block; width: 18px; height: 0; border-top: 2px solid #2664eb; }
+.route-map .map-legend .map-legend-remaining { border-color: #8da9c5; border-top-style: dashed; }
+.route-map .map-disclaimer { position: absolute; right: 66px; bottom: 25px; color: #94a5b5; font-size: 8px; line-height: 1; letter-spacing: .2px; }
+.route-map .map-controls { position: absolute; right: 20px; bottom: 20px; display: flex; flex-direction: column; overflow: hidden; border: 1px solid #dfe7ee; border-radius: 7px; box-shadow: 0 2px 8px #23496a08; background: #fff; }
+.route-map .map-controls button { display: grid; place-items: center; width: 31px; height: 31px; padding: 0; border: 0; border-radius: 0; color: #73869a; background: #ffffff; cursor: pointer; transition: background 160ms ease, color 160ms ease; }
+.route-map .map-controls button + button { border-top: 1px solid #e8edf2; }
+.route-map .map-controls button:hover { background: #f2f6ff; color: #2664eb; }
+.route-map .map-controls button:focus-visible { position: relative; outline: 2px solid #2664eb; outline-offset: -3px; }
+.route-map .map-controls button:disabled { color: #c6cfd9; background: #f7f9fb; cursor: default; }
+.route-map .map-controls svg { fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; }
+
+@keyframes route-map-pulse {
+  0%, 100% { opacity: .12; transform: scale(.9); }
+  70% { opacity: .02; transform: scale(1.3); }
+}
+
+@media (max-width: 600px) {
+  .route-map { height: 340px; min-height: 340px; }
+  .route-map .map-illustration { min-height: 340px; }
+  .route-map .map-location-card { top: 15px; left: 15px; padding: 11px 13px; width: 203px; gap: 9px; }
+  .route-map .map-location-symbol { flex-basis: 32px; width: 32px; height: 32px; border-radius: 8px; }
+  .route-map .map-location-copy { gap: 4px; }
+  .route-map .map-location-copy strong { font-size: 11px; }
+  .route-map .map-north { top: 19px; right: 19px; }
+  .route-map .map-legend { left: 15px; bottom: 39px; padding: 7px 8px; gap: 12px; font-size: 8px; }
+  .route-map .map-controls { right: 14px; bottom: 15px; }
+  .route-map .map-disclaimer { left: 17px; right: auto; bottom: 19px; font-size: 8px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .route-map .map-illustration { transition: none; }
+  .route-map .map-position-pulse { animation: none; }
+}

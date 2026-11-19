@@ -1,0 +1,23 @@
+# Send only runtime source and the explicit public edge allowlist to the builder.
+**
+!backend/
+!backend/**
+!deploy/
+!deploy/Dockerfile
+!deploy/Caddyfile
+!index.html
+!app.js
+!api.js
+!data.js
+!shipment-view.js
+!site-config.js
+!map.js
+!styles.css
+!map.css
+backend/**/__pycache__/
+backend/**/*.pyc
+backend/**/.venv/
+backend/**/venv/
+backend/**/.env*
+backend/**/*.sqlite*
+backend/staticfiles/

@@ -1,0 +1,6 @@
+# Keep project scripts and container inputs consistent across operating systems.
+.gitattributes text eol=lf
+.github/** text=auto eol=lf
+projects/parcelink/** text=auto eol=lf
+projects/parcelink/**/*.png binary
+projects/parcelink/**/*.docx binary

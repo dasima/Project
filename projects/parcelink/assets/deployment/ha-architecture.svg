@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2000" height="1580" viewBox="0 0 2000 1580">
+<rect width="2000" height="1580" fill="white"/>
+<polyline points="1000,150 1000,190 500,190 500,245" fill="none" stroke="#28648C" stroke-width="6" stroke-linejoin="round"/>
+<polygon points="500.00,245.00 509.50,226.00 490.50,226.00" fill="#28648C"/>
+<polyline points="1000,190 1500,190 1500,245" fill="none" stroke="#28648C" stroke-width="6" stroke-linejoin="round"/>
+<polygon points="1500.00,245.00 1509.50,226.00 1490.50,226.00" fill="#28648C"/>
+<polyline points="500,370 500,414 1000,414 1000,460" fill="none" stroke="#28648C" stroke-width="6" stroke-linejoin="round"/>
+<polygon points="1000.00,460.00 1009.50,441.00 990.50,441.00" fill="#28648C"/>
+<polyline points="1500,370 1500,414 1000,414" fill="none" stroke="#28648C" stroke-width="6" stroke-linejoin="round"/>
+<polyline points="1000,610 1000,659 525,659 525,770" fill="none" stroke="#28648C" stroke-width="6" stroke-linejoin="round"/>
+<polygon points="525.00,770.00 534.50,751.00 515.50,751.00" fill="#28648C"/>
+<polyline points="1000,659 1475,659 1475,770" fill="none" stroke="#28648C" stroke-width="6" stroke-linejoin="round"/>
+<polygon points="1475.00,770.00 1484.50,751.00 1465.50,751.00" fill="#28648C"/>
+<polyline points="525,1110 525,1190 1475,1190 1475,1260" fill="none" stroke="#28648C" stroke-width="6" stroke-linejoin="round"/>
+<polygon points="1475.00,1260.00 1484.50,1241.00 1465.50,1241.00" fill="#28648C"/>
+<polyline points="525,1190 525,1260" fill="none" stroke="#28648C" stroke-width="6" stroke-linejoin="round"/>
+<polygon points="525.00,1260.00 534.50,1241.00 515.50,1241.00" fill="#28648C"/>
+<polyline points="1475,1110 1475,1190" fill="none" stroke="#28648C" stroke-width="6" stroke-linejoin="round"/>
+<rect x="600" y="20" width="800" height="130" rx="22" fill="#EAF3FA" stroke="#5185A6" stroke-width="3"/>
+<text x="1000.0" y="64" font-family="PingFang SC, sans-serif" font-size="43" text-anchor="middle" dominant-baseline="central" fill="#143247" font-weight="600">客户与管理后台</text>
+<text x="1000.0" y="118" font-family="PingFang SC, sans-serif" font-size="38" text-anchor="middle" dominant-baseline="central" fill="#50697A" font-weight="400">HTTPS 浏览器访问</text>
+<rect x="100" y="245" width="800" height="125" rx="22" fill="#EAF3FA" stroke="#5185A6" stroke-width="3"/>
+<text x="500.0" y="289" font-family="PingFang SC, sans-serif" font-size="43" text-anchor="middle" dominant-baseline="central" fill="#143247" font-weight="600">主域名 待配置</text>
+<text x="500.0" y="343" font-family="PingFang SC, sans-serif" font-size="38" text-anchor="middle" dominant-baseline="central" fill="#50697A" font-weight="400">托管冗余 DNS</text>
+<rect x="1100" y="245" width="800" height="125" rx="22" fill="#EAF3FA" stroke="#5185A6" stroke-width="3"/>
+<text x="1500.0" y="289" font-family="PingFang SC, sans-serif" font-size="43" text-anchor="middle" dominant-baseline="central" fill="#143247" font-weight="600">备用域名 待配置</text>
+<text x="1500.0" y="343" font-family="PingFang SC, sans-serif" font-size="38" text-anchor="middle" dominant-baseline="central" fill="#50697A" font-weight="400">提前公布并配置 DNS 与 TLS</text>
+<rect x="450" y="460" width="1100" height="150" rx="22" fill="#EAF3FA" stroke="#5185A6" stroke-width="3"/>
+<text x="1000.0" y="504" font-family="PingFang SC, sans-serif" font-size="43" text-anchor="middle" dominant-baseline="central" fill="#143247" font-weight="600">托管冗余负载均衡</text>
+<text x="1000.0" y="558" font-family="PingFang SC, sans-serif" font-size="38" text-anchor="middle" dominant-baseline="central" fill="#50697A" font-weight="400">健康检查与摘除故障实例</text>
+<rect x="100" y="710" width="850" height="400" rx="28" fill="#F4F8FB" stroke="#8DAABA" stroke-width="4"/>
+<text x="525" y="745" font-family="PingFang SC, sans-serif" font-size="41" text-anchor="middle" dominant-baseline="central" fill="#143247" font-weight="600">应用主机 A · 故障域 A</text>
+<rect x="145" y="800" width="760" height="150" rx="22" fill="#EAF6F3" stroke="#4D9A8A" stroke-width="3"/>
+<text x="525.0" y="844" font-family="PingFang SC, sans-serif" font-size="43" text-anchor="middle" dominant-baseline="central" fill="#143247" font-weight="600">Caddy + Gunicorn + Django</text>
+<text x="525.0" y="898" font-family="PingFang SC, sans-serif" font-size="38" text-anchor="middle" dominant-baseline="central" fill="#50697A" font-weight="400">Compose · 无状态 · 相同镜像</text>
+<rect x="145" y="985" width="760" height="85" rx="15" fill="#EEF8F6" stroke="#4D9A8A" stroke-width="3"/>
+<text x="525" y="1028" font-family="PingFang SC, sans-serif" font-size="39" text-anchor="middle" dominant-baseline="central" fill="#227D78" font-weight="600">systemd timer · 同步任务</text>
+<rect x="1050" y="710" width="850" height="400" rx="28" fill="#F4F8FB" stroke="#8DAABA" stroke-width="4"/>
+<text x="1475" y="745" font-family="PingFang SC, sans-serif" font-size="41" text-anchor="middle" dominant-baseline="central" fill="#143247" font-weight="600">应用主机 B · 故障域 B</text>
+<rect x="1095" y="800" width="760" height="150" rx="22" fill="#EAF6F3" stroke="#4D9A8A" stroke-width="3"/>
+<text x="1475.0" y="844" font-family="PingFang SC, sans-serif" font-size="43" text-anchor="middle" dominant-baseline="central" fill="#143247" font-weight="600">Caddy + Gunicorn + Django</text>
+<text x="1475.0" y="898" font-family="PingFang SC, sans-serif" font-size="38" text-anchor="middle" dominant-baseline="central" fill="#50697A" font-weight="400">Compose · 无状态 · 相同镜像</text>
+<rect x="1095" y="985" width="760" height="85" rx="15" fill="#EEF8F6" stroke="#4D9A8A" stroke-width="3"/>
+<text x="1475" y="1028" font-family="PingFang SC, sans-serif" font-size="39" text-anchor="middle" dominant-baseline="central" fill="#227D78" font-weight="600">systemd timer · 同步任务</text>
+<rect x="100" y="1260" width="850" height="180" rx="22" fill="#EDF1FA" stroke="#778FB4" stroke-width="3"/>
+<text x="525.0" y="1304" font-family="PingFang SC, sans-serif" font-size="43" text-anchor="middle" dominant-baseline="central" fill="#143247" font-weight="600">托管高可用 PostgreSQL</text>
+<text x="525.0" y="1358" font-family="PingFang SC, sans-serif" font-size="38" text-anchor="middle" dominant-baseline="central" fill="#50697A" font-weight="400">主备与自动故障切换</text>
+<text x="525.0" y="1404" font-family="PingFang SC, sans-serif" font-size="38" text-anchor="middle" dominant-baseline="central" fill="#50697A" font-weight="400">业务数据 · Session · 任务锁</text>
+<rect x="1050" y="1260" width="850" height="180" rx="22" fill="#FFF7E9" stroke="#D1AC62" stroke-width="3"/>
+<text x="1475.0" y="1304" font-family="PingFang SC, sans-serif" font-size="43" text-anchor="middle" dominant-baseline="central" fill="#143247" font-weight="600">冗余对象存储</text>
+<text x="1475.0" y="1358" font-family="PingFang SC, sans-serif" font-size="38" text-anchor="middle" dominant-baseline="central" fill="#50697A" font-weight="400">用户附件 · 加密备份</text>
+<text x="1475.0" y="1404" font-family="PingFang SC, sans-serif" font-size="38" text-anchor="middle" dominant-baseline="central" fill="#50697A" font-weight="400">应用实例之外持久保存</text>
+<text x="1000" y="1155" font-family="PingFang SC, sans-serif" font-size="38" text-anchor="middle" dominant-baseline="central" fill="#28648C" font-weight="400">共享私网访问</text>
+<text x="1000" y="1500" font-family="PingFang SC, sans-serif" font-size="40" text-anchor="middle" dominant-baseline="central" fill="#227D78" font-weight="400">冗余调度入口共享数据库锁与任务租约 · 幂等处理</text>
+<text x="1000" y="1550" font-family="PingFang SC, sans-serif" font-size="37" text-anchor="middle" dominant-baseline="central" fill="#50697A" font-weight="400">推荐正式部署方案 · 云端故障切换指标需实测</text>
+</svg>

@@ -1,0 +1,67 @@
+# Standalone file, run from the projects/parcelink subproject directory:
+# docker compose --env-file /secure/path/parcelink.env -f deploy/compose.ha.yaml up -d --build
+# Deploy this identical web+edge stack on each VM behind a managed HTTPS LB.
+# Allow TCP 8080 only from that LB; configure its health probe as /readyz/.
+# An external managed PostgreSQL instance is shared by all VMs.
+services:
+  web:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile
+      target: app
+    environment:
+      DJANGO_SECRET_KEY: ${DJANGO_SECRET_KEY:?All VMs must share DJANGO_SECRET_KEY}
+      DJANGO_DEBUG: 'false'
+      DJANGO_ALLOWED_HOSTS: ${DJANGO_ALLOWED_HOSTS:?Set the public primary and backup hostnames},localhost,127.0.0.1
+      DJANGO_CSRF_TRUSTED_ORIGINS: ${DJANGO_CSRF_TRUSTED_ORIGINS:?Set the public HTTPS origins}
+      DJANGO_TRUST_PROXY_HEADERS: 'true'
+      DB_HOST: ${DB_HOST:?Set the managed PostgreSQL host}
+      DB_PORT: ${DB_PORT:-5432}
+      DB_NAME: ${DB_NAME:?Set DB_NAME}
+      DB_USER: ${DB_USER:?Set DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD:?Set DB_PASSWORD}
+      DB_SSLMODE: ${DB_SSLMODE:-require}
+      COMPANY_NAME: ${COMPANY_NAME:-项目名称待定}
+      PHONE: ${PHONE:-000-00000000}
+      EMAIL: ${EMAIL:-support@example.com}
+      PRIMARY_DOMAIN: ${PRIMARY_DOMAIN:-}
+      BACKUP_DOMAINS: ${BACKUP_DOMAINS:-}
+    volumes:
+      - django_static:/app/backend/staticfiles
+    tmpfs:
+      - /tmp:mode=1777,size=64m
+    read_only: true
+    security_opt:
+      - no-new-privileges:true
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/readyz/', timeout=5).read()"]
+      interval: 15s
+      timeout: 7s
+      retries: 4
+      start_period: 30s
+    restart: unless-stopped
+
+  edge:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile
+      target: edge
+    environment:
+      SITE_ADDRESSES: ':8080'
+      # Space-separated actual LB source CIDRs; never trust the whole Internet.
+      TRUSTED_PROXY_CIDRS: ${TRUSTED_PROXY_CIDRS:?Set trusted LB source CIDRs}
+    ports:
+      - '${EDGE_BIND_ADDRESS:-0.0.0.0}:${EDGE_HTTP_PORT:-8080}:8080'
+    volumes:
+      - django_static:/srv/django-static:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      web:
+        condition: service_healthy
+    restart: unless-stopped
+
+volumes:
+  django_static:
+  caddy_data:
+  caddy_config:

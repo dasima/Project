@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2000" height="1600" viewBox="0 25 2000 1600">
+<rect x="0" y="25" width="2000" height="1600" fill="white"/>
+<rect x="50" y="350" width="1455" height="1180" rx="30" fill="#F4F8FB" stroke="#8DAABA" stroke-width="4"/>
+<text x="95" y="390" font-family="PingFang SC, sans-serif" font-size="42" text-anchor="start" dominant-baseline="central" fill="#143247" font-weight="600">单台云主机 · Linux VM</text>
+<rect x="110" y="430" width="1340" height="890" rx="24" fill="#FFFFFF" stroke="#B3C6D2" stroke-width="3"/>
+<text x="150" y="466" font-family="PingFang SC, sans-serif" font-size="37" text-anchor="start" dominant-baseline="central" fill="#50697A" font-weight="400">Docker Compose · 私有网络</text>
+<polyline points="480,180 480,270 1180,270 1180,180" fill="none" stroke="#28648C" stroke-width="6" stroke-linejoin="round"/>
+<polyline points="830,270 830,500" fill="none" stroke="#28648C" stroke-width="6" stroke-linejoin="round"/>
+<polygon points="830.00,500.00 839.00,482.00 821.00,482.00" fill="#28648C"/>
+<polyline points="605,650 605,790" fill="none" stroke="#28648C" stroke-width="6" stroke-linejoin="round"/>
+<polygon points="605.00,790.00 614.00,772.00 596.00,772.00" fill="#28648C"/>
+<polyline points="605,940 605,1075" fill="none" stroke="#28648C" stroke-width="6" stroke-linejoin="round"/>
+<polygon points="605.00,1075.00 614.00,1057.00 596.00,1057.00" fill="#28648C"/>
+<polyline points="605,1190 605,1230" fill="none" stroke="#6C899B" stroke-width="5" stroke-linejoin="round"/>
+<polygon points="605.00,1230.00 612.00,1216.00 598.00,1216.00" fill="#6C899B"/>
+<polyline points="1580,610 1010,610" fill="none" stroke="#28648C" stroke-width="6" stroke-linejoin="round"/>
+<polygon points="1010.00,610.00 1028.00,619.00 1028.00,601.00" fill="#28648C"/>
+<polyline points="1265,805 1265,730 1580,730" fill="none" stroke="#227D78" stroke-width="6" stroke-linejoin="round" stroke-dasharray="17 13"/>
+<polygon points="1580.00,730.00 1562.00,721.00 1562.00,739.00" fill="#227D78"/>
+<polyline points="1100,960 1060,960 1060,1133 1010,1133" fill="none" stroke="#227D78" stroke-width="6" stroke-linejoin="round" stroke-dasharray="17 13"/>
+<polygon points="1010.00,1133.00 1028.00,1142.00 1028.00,1124.00" fill="#227D78"/>
+<polyline points="1390,1380 1390,1040" fill="none" stroke="#227D78" stroke-width="6" stroke-linejoin="round" stroke-dasharray="17 13"/>
+<polygon points="1390.00,1040.00 1381.00,1058.00 1399.00,1058.00" fill="#227D78"/>
+<polyline points="200,1133 150,1133 150,1430 200,1430" fill="none" stroke="#227D78" stroke-width="6" stroke-linejoin="round" stroke-dasharray="17 13"/>
+<polygon points="200.00,1430.00 182.00,1421.00 182.00,1439.00" fill="#227D78"/>
+<polyline points="565,1480 565,1565 1765,1565 1765,1450" fill="none" stroke="#227D78" stroke-width="6" stroke-linejoin="round" stroke-dasharray="17 13"/>
+<polygon points="1765.00,1450.00 1756.00,1468.00 1774.00,1468.00" fill="#227D78"/>
+<rect x="200" y="40" width="560" height="140" rx="20" fill="#F3F8FD" stroke="#AAC4D7" stroke-width="3"/>
+<text x="480.0" y="87" font-family="PingFang SC, sans-serif" font-size="40" text-anchor="middle" dominant-baseline="central" fill="#143247" font-weight="600">客户 / 手机浏览器</text>
+<text x="480.0" y="140" font-family="PingFang SC, sans-serif" font-size="37" text-anchor="middle" dominant-baseline="central" fill="#50697A" font-weight="400">物流查询</text>
+<rect x="900" y="40" width="560" height="140" rx="20" fill="#F3F8FD" stroke="#AAC4D7" stroke-width="3"/>
+<text x="1180.0" y="87" font-family="PingFang SC, sans-serif" font-size="40" text-anchor="middle" dominant-baseline="central" fill="#143247" font-weight="600">管理后台浏览器</text>
+<text x="1180.0" y="140" font-family="PingFang SC, sans-serif" font-size="37" text-anchor="middle" dominant-baseline="central" fill="#50697A" font-weight="400">运单、物流与配置</text>
+<text x="830" y="220" font-family="PingFang SC, sans-serif" font-size="37" text-anchor="middle" dominant-baseline="central" fill="#28648C" font-weight="400">同源 HTTPS · Session Cookie</text>
+<text x="100" y="315" font-family="PingFang SC, sans-serif" font-size="37" text-anchor="start" dominant-baseline="central" fill="#50697A" font-weight="400">公网：443；80 用于跳转或证书验证</text>
+<text x="1060" y="315" font-family="PingFang SC, sans-serif" font-size="37" text-anchor="start" dominant-baseline="central" fill="#50697A" font-weight="400">SSH：仅 VPN / 白名单</text>
+<rect x="200" y="500" width="810" height="150" rx="20" fill="#EAF3FA" stroke="#5185A6" stroke-width="3"/>
+<text x="605.0" y="548" font-family="PingFang SC, sans-serif" font-size="40" text-anchor="middle" dominant-baseline="central" fill="#143247" font-weight="600">Caddy · HTTPS 入口</text>
+<text x="605.0" y="601" font-family="PingFang SC, sans-serif" font-size="37" text-anchor="middle" dominant-baseline="central" fill="#50697A" font-weight="400">前端 HTML/CSS/JS · /static · TLS</text>
+<rect x="200" y="790" width="810" height="150" rx="20" fill="#EAF6F3" stroke="#4D9A8A" stroke-width="3"/>
+<text x="605.0" y="838" font-family="PingFang SC, sans-serif" font-size="40" text-anchor="middle" dominant-baseline="central" fill="#143247" font-weight="600">Django + Gunicorn · web</text>
+<text x="605.0" y="891" font-family="PingFang SC, sans-serif" font-size="37" text-anchor="middle" dominant-baseline="central" fill="#50697A" font-weight="400">业务 API / 管理后台 · 内部 :8000</text>
+<rect x="200" y="1075" width="810" height="115" rx="20" fill="#EDF1FA" stroke="#778FB4" stroke-width="3"/>
+<text x="605.0" y="1113" font-family="PingFang SC, sans-serif" font-size="40" text-anchor="middle" dominant-baseline="central" fill="#143247" font-weight="600">PostgreSQL 17 · db</text>
+<text x="605.0" y="1166" font-family="PingFang SC, sans-serif" font-size="37" text-anchor="middle" dominant-baseline="central" fill="#50697A" font-weight="400">私网 :5432 · 不发布宿主机端口</text>
+<rect x="200" y="1230" width="810" height="60" rx="14" fill="#F4F6FA" stroke="#A5B4C7" stroke-width="3"/>
+<text x="605" y="1260" font-family="PingFang SC, sans-serif" font-size="37" text-anchor="middle" dominant-baseline="central" fill="#50697A" font-weight="400">持久化卷 · postgres_data</text>
+<rect x="1100" y="805" width="330" height="235" rx="20" fill="#EEF8F6" stroke="#4D9A8A" stroke-width="3"/>
+<text x="1265.0" y="846" font-family="PingFang SC, sans-serif" font-size="38" text-anchor="middle" dominant-baseline="central" fill="#143247" font-weight="600">物流同步临时任务</text>
+<text x="1265.0" y="899" font-family="PingFang SC, sans-serif" font-size="37" text-anchor="middle" dominant-baseline="central" fill="#50697A" font-weight="400">复用 web 镜像</text>
+<text x="1265.0" y="944" font-family="PingFang SC, sans-serif" font-size="37" text-anchor="middle" dominant-baseline="central" fill="#50697A" font-weight="400">manage.py</text>
+<text x="1265.0" y="989" font-family="PingFang SC, sans-serif" font-size="37" text-anchor="middle" dominant-baseline="central" fill="#50697A" font-weight="400">sync_tracking</text>
+<rect x="1055" y="1380" width="395" height="100" rx="20" fill="#F1F4F8" stroke="#97ACBC" stroke-width="3"/>
+<text x="1252.5" y="1406" font-family="PingFang SC, sans-serif" font-size="37" text-anchor="middle" dominant-baseline="central" fill="#143247" font-weight="600">宿主机定时器</text>
+<text x="1252.5" y="1459" font-family="PingFang SC, sans-serif" font-size="37" text-anchor="middle" dominant-baseline="central" fill="#50697A" font-weight="400">systemd timer</text>
+<rect x="200" y="1380" width="730" height="100" rx="20" fill="#F1F4F8" stroke="#97ACBC" stroke-width="3"/>
+<text x="565" y="1430" font-family="PingFang SC, sans-serif" font-size="40" text-anchor="middle" dominant-baseline="central" fill="#143247" font-weight="600">每日备份 · pg_dump</text>
+<rect x="1580" y="500" width="370" height="400" rx="20" fill="#FFF7E9" stroke="#D1AC62" stroke-width="3"/>
+<text x="1765.0" y="550" font-family="PingFang SC, sans-serif" font-size="38" text-anchor="middle" dominant-baseline="central" fill="#143247" font-weight="600">外部承运商平台</text>
+<polyline points="1610,595 1920,595" fill="none" stroke="#E6D5B4" stroke-width="3" stroke-linejoin="round"/>
+<text x="1765" y="665" font-family="PingFang SC, sans-serif" font-size="37" text-anchor="middle" dominant-baseline="central" fill="#50697A" font-weight="400">物流查询 API</text>
+<text x="1765" y="810" font-family="PingFang SC, sans-serif" font-size="37" text-anchor="middle" dominant-baseline="central" fill="#50697A" font-weight="400">签名回调</text>
+<rect x="1580" y="1210" width="370" height="240" rx="20" fill="#FFF7E9" stroke="#D1AC62" stroke-width="3"/>
+<text x="1765.0" y="1258" font-family="PingFang SC, sans-serif" font-size="38" text-anchor="middle" dominant-baseline="central" fill="#143247" font-weight="600">异机对象存储</text>
+<text x="1765.0" y="1311" font-family="PingFang SC, sans-serif" font-size="37" text-anchor="middle" dominant-baseline="central" fill="#50697A" font-weight="400">加密备份</text>
+<text x="1765.0" y="1356" font-family="PingFang SC, sans-serif" font-size="37" text-anchor="middle" dominant-baseline="central" fill="#50697A" font-weight="400">云主机之外</text>
+<text x="800" y="713" font-family="PingFang SC, sans-serif" font-size="37" text-anchor="middle" dominant-baseline="central" fill="#28648C" font-weight="400">代理 /api、/admin</text>
+<text x="780" y="1007" font-family="PingFang SC, sans-serif" font-size="37" text-anchor="middle" dominant-baseline="central" fill="#28648C" font-weight="400">私网 :5432</text>
+<text x="1285" y="525" font-family="PingFang SC, sans-serif" font-size="37" text-anchor="middle" dominant-baseline="central" fill="#28648C" font-weight="400">签名 Webhook</text>
+<text x="1285" y="569" font-family="PingFang SC, sans-serif" font-size="37" text-anchor="middle" dominant-baseline="central" fill="#28648C" font-weight="400">HTTPS :443</text>
+<text x="1395" y="684" font-family="PingFang SC, sans-serif" font-size="37" text-anchor="middle" dominant-baseline="central" fill="#227D78" font-weight="400">HTTPS 轮询</text>
+<text x="1220" y="1096" font-family="PingFang SC, sans-serif" font-size="37" text-anchor="middle" dominant-baseline="central" fill="#227D78" font-weight="400">私网 :5432</text>
+<text x="1218" y="1235" font-family="PingFang SC, sans-serif" font-size="37" text-anchor="middle" dominant-baseline="central" fill="#227D78" font-weight="400">按计划触发</text>
+<text x="1160" y="1542" font-family="PingFang SC, sans-serif" font-size="37" text-anchor="middle" dominant-baseline="central" fill="#227D78" font-weight="400">加密上传 · 异机保存</text>
+<polyline points="400,1605 495,1605" fill="none" stroke="#28648C" stroke-width="5" stroke-linejoin="round"/>
+<polygon points="495.00,1605.00 481.00,1598.00 481.00,1612.00" fill="#28648C"/>
+<text x="520" y="1605" font-family="PingFang SC, sans-serif" font-size="37" text-anchor="start" dominant-baseline="central" fill="#50697A" font-weight="400">请求 / 数据</text>
+<polyline points="1020,1605 1115,1605" fill="none" stroke="#227D78" stroke-width="5" stroke-linejoin="round" stroke-dasharray="17 13"/>
+<polygon points="1115.00,1605.00 1101.00,1598.00 1101.00,1612.00" fill="#227D78"/>
+<text x="1140" y="1605" font-family="PingFang SC, sans-serif" font-size="37" text-anchor="start" dominant-baseline="central" fill="#50697A" font-weight="400">定时任务 / 备份</text>
+</svg>

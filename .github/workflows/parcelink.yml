@@ -1,0 +1,112 @@
+name: Parcelink CI
+
+'on':
+  push:
+    paths:
+      - 'projects/parcelink/**'
+      - '.github/workflows/parcelink.yml'
+  pull_request:
+    paths:
+      - 'projects/parcelink/**'
+      - '.github/workflows/parcelink.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: parcelink-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    working-directory: projects/parcelink
+    shell: bash
+
+jobs:
+  frontend:
+    name: Frontend tests and syntax
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      # The frontend has no npm dependencies or install step.
+      - name: Run frontend tests
+        run: npm test
+      - name: Check JavaScript syntax
+        run: |
+          for file in *.js; do
+            node --check "$file"
+          done
+
+  backend:
+    name: Django and PostgreSQL tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    services:
+      postgres:
+        image: postgres:17-alpine
+        # Disposable CI credentials; never used by a deployment.
+        env:
+          POSTGRES_DB: parcelink_ci
+          POSTGRES_USER: parcelink_ci
+          POSTGRES_PASSWORD: ci-only-postgres-password
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U parcelink_ci -d parcelink_ci"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      # Public test values for this job's isolated database, not real secrets.
+      DJANGO_SECRET_KEY: ci-only-django-secret-key-never-use-for-a-deployment
+      DJANGO_DEBUG: 'false'
+      DJANGO_ALLOWED_HOSTS: localhost,127.0.0.1,testserver
+      DB_HOST: 127.0.0.1
+      DB_PORT: '5432'
+      DB_NAME: parcelink_ci
+      DB_USER: parcelink_ci
+      DB_PASSWORD: ci-only-postgres-password
+      DB_SSLMODE: disable
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: projects/parcelink/backend/requirements.txt
+      - name: Install backend dependencies
+        run: python -m pip install -r backend/requirements.txt
+      - name: Run Django system checks
+        run: python backend/manage.py check
+      - name: Check for missing migrations
+        run: python backend/manage.py makemigrations --check --dry-run
+      - name: Run backend tests
+        run: python backend/manage.py test logistics.tests --verbosity 2
+
+  compose:
+    name: Compose configuration
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      # Interpolation fixtures only. No containers or cloud resources start here.
+      DJANGO_SECRET_KEY: ci-only-compose-interpolation-key-never-deploy
+      DJANGO_DEBUG: 'false'
+      DJANGO_ALLOWED_HOSTS: localhost
+      DJANGO_CSRF_TRUSTED_ORIGINS: https://localhost
+      DB_HOST: postgres.invalid
+      DB_PORT: '5432'
+      DB_NAME: parcelink_ci
+      DB_USER: parcelink_ci
+      DB_PASSWORD: ci-only-compose-interpolation-password
+      DB_SSLMODE: require
+      TRUSTED_PROXY_CIDRS: 192.0.2.0/24
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate local trial configuration
+        run: docker compose --env-file /dev/null -f compose.yaml config --quiet
+      - name: Validate standalone HA configuration
+        run: docker compose --env-file /dev/null -f deploy/compose.ha.yaml config --quiet

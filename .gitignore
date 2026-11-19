@@ -1,3 +1,26 @@
 # ignore file
 bin
 obj
+
+# Local environments, secrets and generated runtime files for every subproject.
+.DS_Store
+__pycache__/
+*.py[cod]
+node_modules/
+.venv/
+venv/
+.tmp/
+artifacts/
+.env
+.env.*
+!.env.example
+!.env.*.example
+*.log
+*.dump
+*.backup
+.coverage
+.coverage.*
+coverage/
+.pytest_cache/
+.ruff_cache/
+htmlcov/

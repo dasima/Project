@@ -1,0 +1,85 @@
+# Local trial: copy .env.example to .env and supply both required secrets.
+# Release steps (run once): migrate, then collectstatic; neither runs on web start.
+services:
+  db:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: ${DB_NAME:-logistics}
+      POSTGRES_USER: ${DB_USER:-logistics}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:?Set DB_PASSWORD in .env}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: [CMD-SHELL, 'pg_isready -U "$$POSTGRES_USER" -d "$$POSTGRES_DB"']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+    restart: unless-stopped
+
+  web:
+    build:
+      context: .
+      dockerfile: deploy/Dockerfile
+      target: app
+    environment:
+      DJANGO_SECRET_KEY: ${DJANGO_SECRET_KEY:?Set DJANGO_SECRET_KEY in .env}
+      DJANGO_DEBUG: ${DJANGO_DEBUG:-false}
+      DJANGO_ALLOWED_HOSTS: ${DJANGO_ALLOWED_HOSTS:-localhost,127.0.0.1,[::1]},localhost,127.0.0.1
+      DJANGO_CSRF_TRUSTED_ORIGINS: ${DJANGO_CSRF_TRUSTED_ORIGINS:-http://localhost}
+      DJANGO_TRUST_PROXY_HEADERS: 'true'
+      DB_HOST: db
+      DB_PORT: '5432'
+      DB_NAME: ${DB_NAME:-logistics}
+      DB_USER: ${DB_USER:-logistics}
+      DB_PASSWORD: ${DB_PASSWORD:?Set DB_PASSWORD in .env}
+      DB_SSLMODE: ${DB_SSLMODE:-prefer}
+      COMPANY_NAME: ${COMPANY_NAME:-项目名称待定}
+      PHONE: ${PHONE:-000-00000000}
+      EMAIL: ${EMAIL:-support@example.com}
+      PRIMARY_DOMAIN: ${PRIMARY_DOMAIN:-}
+      BACKUP_DOMAINS: ${BACKUP_DOMAINS:-}
+    volumes:
+      - django_static:/app/backend/staticfiles
+    tmpfs:
+      - /tmp:mode=1777,size=64m
+    read_only: true
+    security_opt:
+      - no-new-privileges:true
+    depends_on:
+      db:
+        condition: service_healthy
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/readyz/', timeout=5).read()"]
+      interval: 15s
+      timeout: 7s
+      retries: 4
+      start_period: 30s
+    restart: unless-stopped
+
+  edge:
+    build:
+      context: .
+      dockerfile: deploy/Dockerfile
+      target: edge
+    environment:
+      # Registered hosts separated by comma + space enable automatic HTTPS.
+      SITE_ADDRESSES: ${SITE_ADDRESSES:-http://localhost}
+      TRUSTED_PROXY_CIDRS: ${TRUSTED_PROXY_CIDRS:-127.0.0.1/32}
+    ports:
+      - '80:80'
+      - '443:443'
+    volumes:
+      - django_static:/srv/django-static:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      web:
+        condition: service_healthy
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+  django_static:
+  caddy_data:
+  caddy_config:

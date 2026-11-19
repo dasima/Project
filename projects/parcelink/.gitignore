@@ -1,0 +1,10 @@
+__pycache__/
+.DS_Store
+node_modules/
+artifacts/
+.tmp/
+.venv/
+.env
+backend/.env
+backend/staticfiles/
+build/

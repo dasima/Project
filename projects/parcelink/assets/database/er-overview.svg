@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2300" height="1740" viewBox="0 0 2300 1740">
+<rect width="2300" height="1740" fill="white"/>
+<text x="90" y="55" font-family="Arial Unicode MS, Arial, sans-serif" font-size="54" text-anchor="start" dominant-baseline="central" font-weight="600" fill="#111827">集运系统 · 数据库关系概览</text>
+<text x="90" y="112" font-family="Arial Unicode MS, Arial, sans-serif" font-size="37" text-anchor="start" dominant-baseline="central" font-weight="400" fill="#526477">Django 5.2 / PostgreSQL 17 · 9 张业务表 + Django 用户表</text>
+<polyline points="700,315 855,315" fill="none" stroke="#727B86" stroke-width="4" stroke-linejoin="round"/>
+<polyline points="1465,315 1640,315" fill="none" stroke="#416983" stroke-width="4" stroke-linejoin="round"/>
+<polyline points="1835,440 1835,535 1160,535 1160,630" fill="none" stroke="#416983" stroke-width="4" stroke-linejoin="round"/>
+<polyline points="2070,440 2070,630" fill="none" stroke="#416983" stroke-width="4" stroke-linejoin="round"/>
+<polyline points="700,755 855,755" fill="none" stroke="#416983" stroke-width="4" stroke-linejoin="round"/>
+<polyline points="410,880 410,1070" fill="none" stroke="#416983" stroke-width="4" stroke-linejoin="round"/>
+<polyline points="1465,755 1640,755" fill="none" stroke="#416983" stroke-width="4" stroke-linejoin="round"/>
+<polyline points="1160,880 1160,1070" fill="none" stroke="#416983" stroke-width="4" stroke-linejoin="round"/>
+<polyline points="1360,880 1360,975 1935,975 1935,1070" fill="none" stroke="#416983" stroke-width="4" stroke-linejoin="round"/>
+<polyline points="855,820 780,820 780,1375 1040,1375 1040,1440" fill="none" stroke="#416983" stroke-width="4" stroke-linejoin="round"/>
+<polyline points="120,315 65,315 65,1565 855,1565" fill="none" stroke="#727B86" stroke-width="4" stroke-linejoin="round" stroke-dasharray="14 10"/>
+<rect x="120" y="190" width="580" height="250" rx="16" fill="#F0F2F4" stroke="#9CA5AE" stroke-width="3"/>
+<text x="144" y="221" font-family="Arial Unicode MS, Arial, sans-serif" font-size="36" text-anchor="start" dominant-baseline="central" font-weight="600" fill="#111827">auth_user</text>
+<text x="144" y="267" font-family="Arial Unicode MS, Arial, sans-serif" font-size="40" text-anchor="start" dominant-baseline="central" font-weight="600" fill="#111827">用户（Django 管理）</text>
+<polyline points="142,297 678,297" fill="none" stroke="#9CA5AE" stroke-width="2" stroke-linejoin="round"/>
+<text x="144" y="327" font-family="Arial Unicode MS, Arial, sans-serif" font-size="36" text-anchor="start" dominant-baseline="central" font-weight="400" fill="#334155">id · PK</text>
+<text x="144" y="369" font-family="Arial Unicode MS, Arial, sans-serif" font-size="36" text-anchor="start" dominant-baseline="central" font-weight="400" fill="#334155">username · UNIQUE</text>
+<text x="144" y="411" font-family="Arial Unicode MS, Arial, sans-serif" font-size="36" text-anchor="start" dominant-baseline="central" font-weight="400" fill="#334155">其余字段由 Django 维护</text>
+<rect x="855" y="190" width="610" height="250" rx="16" fill="#EEF5FA" stroke="#8EADBF" stroke-width="3"/>
+<text x="879" y="221" font-family="Arial Unicode MS, Arial, sans-serif" font-size="36" text-anchor="start" dominant-baseline="central" font-weight="600" fill="#111827">logistics_customer_user</text>
+<text x="879" y="267" font-family="Arial Unicode MS, Arial, sans-serif" font-size="40" text-anchor="start" dominant-baseline="central" font-weight="600" fill="#111827">客户账号映射</text>
+<polyline points="877,297 1443,297" fill="none" stroke="#8EADBF" stroke-width="2" stroke-linejoin="round"/>
+<text x="879" y="327" font-family="Arial Unicode MS, Arial, sans-serif" font-size="36" text-anchor="start" dominant-baseline="central" font-weight="400" fill="#334155">id · PK</text>
+<text x="879" y="369" font-family="Arial Unicode MS, Arial, sans-serif" font-size="36" text-anchor="start" dominant-baseline="central" font-weight="400" fill="#334155">customer_id · FK</text>
+<text x="879" y="411" font-family="Arial Unicode MS, Arial, sans-serif" font-size="36" text-anchor="start" dominant-baseline="central" font-weight="400" fill="#334155">user_id · FK · UNIQUE</text>
+<rect x="1640" y="190" width="590" height="250" rx="16" fill="#EEF5FA" stroke="#8EADBF" stroke-width="3"/>
+<text x="1664" y="221" font-family="Arial Unicode MS, Arial, sans-serif" font-size="36" text-anchor="start" dominant-baseline="central" font-weight="600" fill="#111827">logistics_customer</text>
+<text x="1664" y="267" font-family="Arial Unicode MS, Arial, sans-serif" font-size="40" text-anchor="start" dominant-baseline="central" font-weight="600" fill="#111827">客户</text>
+<polyline points="1662,297 2208,297" fill="none" stroke="#8EADBF" stroke-width="2" stroke-linejoin="round"/>
+<text x="1664" y="327" font-family="Arial Unicode MS, Arial, sans-serif" font-size="36" text-anchor="start" dominant-baseline="central" font-weight="400" fill="#334155">id · PK</text>
+<text x="1664" y="369" font-family="Arial Unicode MS, Arial, sans-serif" font-size="36" text-anchor="start" dominant-baseline="central" font-weight="400" fill="#334155">code · UNIQUE</text>
+<text x="1664" y="411" font-family="Arial Unicode MS, Arial, sans-serif" font-size="36" text-anchor="start" dominant-baseline="central" font-weight="400" fill="#334155">name</text>
+<rect x="120" y="630" width="580" height="250" rx="16" fill="#EEF5FA" stroke="#8EADBF" stroke-width="3"/>
+<text x="144" y="661" font-family="Arial Unicode MS, Arial, sans-serif" font-size="36" text-anchor="start" dominant-baseline="central" font-weight="600" fill="#111827">logistics_carrier</text>
+<text x="144" y="707" font-family="Arial Unicode MS, Arial, sans-serif" font-size="40" text-anchor="start" dominant-baseline="central" font-weight="600" fill="#111827">承运商</text>
+<polyline points="142,737 678,737" fill="none" stroke="#8EADBF" stroke-width="2" stroke-linejoin="round"/>
+<text x="144" y="767" font-family="Arial Unicode MS, Arial, sans-serif" font-size="36" text-anchor="start" dominant-baseline="central" font-weight="400" fill="#334155">id · PK</text>
+<text x="144" y="809" font-family="Arial Unicode MS, Arial, sans-serif" font-size="36" text-anchor="start" dominant-baseline="central" font-weight="400" fill="#334155">code · UNIQUE</text>
+<text x="144" y="851" font-family="Arial Unicode MS, Arial, sans-serif" font-size="36" text-anchor="start" dominant-baseline="central" font-weight="400" fill="#334155">name</text>
+<rect x="855" y="630" width="610" height="250" rx="16" fill="#EEF5FA" stroke="#8EADBF" stroke-width="3"/>
+<text x="879" y="661" font-family="Arial Unicode MS, Arial, sans-serif" font-size="36" text-anchor="start" dominant-baseline="central" font-weight="600" fill="#111827">logistics_shipment</text>
+<text x="879" y="707" font-family="Arial Unicode MS, Arial, sans-serif" font-size="40" text-anchor="start" dominant-baseline="central" font-weight="600" fill="#111827">运单</text>
+<polyline points="877,737 1443,737" fill="none" stroke="#8EADBF" stroke-width="2" stroke-linejoin="round"/>
+<text x="879" y="767" font-family="Arial Unicode MS, Arial, sans-serif" font-size="36" text-anchor="start" dominant-baseline="central" font-weight="400" fill="#334155">id · PK</text>
+<text x="879" y="809" font-family="Arial Unicode MS, Arial, sans-serif" font-size="36" text-anchor="start" dominant-baseline="central" font-weight="400" fill="#334155">customer_id · FK</text>
+<text x="879" y="851" font-family="Arial Unicode MS, Arial, sans-serif" font-size="36" text-anchor="start" dominant-baseline="central" font-weight="400" fill="#334155">carrier_id · FK · NULL</text>
+<rect x="1640" y="630" width="590" height="250" rx="16" fill="#EEF5FA" stroke="#8EADBF" stroke-width="3"/>
+<text x="1664" y="661" font-family="Arial Unicode MS, Arial, sans-serif" font-size="36" text-anchor="start" dominant-baseline="central" font-weight="600" fill="#111827">logistics_package</text>
+<text x="1664" y="707" font-family="Arial Unicode MS, Arial, sans-serif" font-size="40" text-anchor="start" dominant-baseline="central" font-weight="600" fill="#111827">包裹</text>
+<polyline points="1662,737 2208,737" fill="none" stroke="#8EADBF" stroke-width="2" stroke-linejoin="round"/>
+<text x="1664" y="767" font-family="Arial Unicode MS, Arial, sans-serif" font-size="36" text-anchor="start" dominant-baseline="central" font-weight="400" fill="#334155">id · PK</text>
+<text x="1664" y="809" font-family="Arial Unicode MS, Arial, sans-serif" font-size="36" text-anchor="start" dominant-baseline="central" font-weight="400" fill="#334155">customer_id · FK</text>
+<text x="1664" y="851" font-family="Arial Unicode MS, Arial, sans-serif" font-size="36" text-anchor="start" dominant-baseline="central" font-weight="400" fill="#334155">shipment_id · FK · NULL</text>
+<rect x="120" y="1070" width="580" height="250" rx="16" fill="#EEF5FA" stroke="#8EADBF" stroke-width="3"/>
+<text x="144" y="1101" font-family="Arial Unicode MS, Arial, sans-serif" font-size="36" text-anchor="start" dominant-baseline="central" font-weight="600" fill="#111827">logistics_webhook_receipt</text>
+<text x="144" y="1147" font-family="Arial Unicode MS, Arial, sans-serif" font-size="40" text-anchor="start" dominant-baseline="central" font-weight="600" fill="#111827">已验签回调</text>
+<polyline points="142,1177 678,1177" fill="none" stroke="#8EADBF" stroke-width="2" stroke-linejoin="round"/>
+<text x="144" y="1207" font-family="Arial Unicode MS, Arial, sans-serif" font-size="36" text-anchor="start" dominant-baseline="central" font-weight="400" fill="#334155">id · PK</text>
+<text x="144" y="1249" font-family="Arial Unicode MS, Arial, sans-serif" font-size="36" text-anchor="start" dominant-baseline="central" font-weight="400" fill="#334155">carrier_id · FK</text>
+<text x="144" y="1291" font-family="Arial Unicode MS, Arial, sans-serif" font-size="36" text-anchor="start" dominant-baseline="central" font-weight="400" fill="#334155">event_key</text>
+<rect x="855" y="1070" width="610" height="250" rx="16" fill="#EEF5FA" stroke="#8EADBF" stroke-width="3"/>
+<text x="879" y="1101" font-family="Arial Unicode MS, Arial, sans-serif" font-size="36" text-anchor="start" dominant-baseline="central" font-weight="600" fill="#111827">logistics_tracking_event</text>
+<text x="879" y="1147" font-family="Arial Unicode MS, Arial, sans-serif" font-size="40" text-anchor="start" dominant-baseline="central" font-weight="600" fill="#111827">物流轨迹</text>
+<polyline points="877,1177 1443,1177" fill="none" stroke="#8EADBF" stroke-width="2" stroke-linejoin="round"/>
+<text x="879" y="1207" font-family="Arial Unicode MS, Arial, sans-serif" font-size="36" text-anchor="start" dominant-baseline="central" font-weight="400" fill="#334155">id · PK</text>
+<text x="879" y="1249" font-family="Arial Unicode MS, Arial, sans-serif" font-size="36" text-anchor="start" dominant-baseline="central" font-weight="400" fill="#334155">shipment_id · FK</text>
+<text x="879" y="1291" font-family="Arial Unicode MS, Arial, sans-serif" font-size="36" text-anchor="start" dominant-baseline="central" font-weight="400" fill="#334155">occurred_at</text>
+<rect x="1640" y="1070" width="590" height="250" rx="16" fill="#EEF5FA" stroke="#8EADBF" stroke-width="3"/>
+<text x="1664" y="1101" font-family="Arial Unicode MS, Arial, sans-serif" font-size="36" text-anchor="start" dominant-baseline="central" font-weight="600" fill="#111827">logistics_sync_job</text>
+<text x="1664" y="1147" font-family="Arial Unicode MS, Arial, sans-serif" font-size="40" text-anchor="start" dominant-baseline="central" font-weight="600" fill="#111827">物流同步任务</text>
+<polyline points="1662,1177 2208,1177" fill="none" stroke="#8EADBF" stroke-width="2" stroke-linejoin="round"/>
+<text x="1664" y="1207" font-family="Arial Unicode MS, Arial, sans-serif" font-size="36" text-anchor="start" dominant-baseline="central" font-weight="400" fill="#334155">id · PK</text>
+<text x="1664" y="1249" font-family="Arial Unicode MS, Arial, sans-serif" font-size="36" text-anchor="start" dominant-baseline="central" font-weight="400" fill="#334155">shipment_id · FK · UNIQUE</text>
+<text x="1664" y="1291" font-family="Arial Unicode MS, Arial, sans-serif" font-size="36" text-anchor="start" dominant-baseline="central" font-weight="400" fill="#334155">next_retry_at</text>
+<rect x="855" y="1440" width="610" height="250" rx="16" fill="#EEF5FA" stroke="#8EADBF" stroke-width="3"/>
+<text x="879" y="1471" font-family="Arial Unicode MS, Arial, sans-serif" font-size="36" text-anchor="start" dominant-baseline="central" font-weight="600" fill="#111827">logistics_audit_log</text>
+<text x="879" y="1517" font-family="Arial Unicode MS, Arial, sans-serif" font-size="40" text-anchor="start" dominant-baseline="central" font-weight="600" fill="#111827">审计日志</text>
+<polyline points="877,1547 1443,1547" fill="none" stroke="#8EADBF" stroke-width="2" stroke-linejoin="round"/>
+<text x="879" y="1577" font-family="Arial Unicode MS, Arial, sans-serif" font-size="36" text-anchor="start" dominant-baseline="central" font-weight="400" fill="#334155">id · PK</text>
+<text x="879" y="1619" font-family="Arial Unicode MS, Arial, sans-serif" font-size="36" text-anchor="start" dominant-baseline="central" font-weight="400" fill="#334155">shipment_id · FK · NULL</text>
+<text x="879" y="1661" font-family="Arial Unicode MS, Arial, sans-serif" font-size="36" text-anchor="start" dominant-baseline="central" font-weight="400" fill="#334155">actor_id · FK · NULL</text>
+<rect x="708" y="269" width="35" height="34" fill="white"/>
+<text x="726" y="284" font-family="Arial Unicode MS, Arial, sans-serif" font-size="37" text-anchor="middle" dominant-baseline="central" font-weight="400" fill="#727B86">1</text>
+<rect x="773" y="269" width="76" height="34" fill="white"/>
+<text x="811" y="284" font-family="Arial Unicode MS, Arial, sans-serif" font-size="37" text-anchor="middle" dominant-baseline="central" font-weight="400" fill="#727B86">0..1</text>
+<rect x="1469" y="269" width="69" height="34" fill="white"/>
+<text x="1504" y="284" font-family="Arial Unicode MS, Arial, sans-serif" font-size="37" text-anchor="middle" dominant-baseline="central" font-weight="400" fill="#416983">0..*</text>
+<rect x="1596" y="269" width="35" height="34" fill="white"/>
+<text x="1614" y="284" font-family="Arial Unicode MS, Arial, sans-serif" font-size="37" text-anchor="middle" dominant-baseline="central" font-weight="400" fill="#416983">1</text>
+<rect x="1781" y="454" width="35" height="34" fill="white"/>
+<text x="1799" y="469" font-family="Arial Unicode MS, Arial, sans-serif" font-size="37" text-anchor="middle" dominant-baseline="central" font-weight="400" fill="#416983">1</text>
+<rect x="1085" y="580" width="69" height="34" fill="white"/>
+<text x="1120" y="595" font-family="Arial Unicode MS, Arial, sans-serif" font-size="37" text-anchor="middle" dominant-baseline="central" font-weight="400" fill="#416983">0..*</text>
+<rect x="2102" y="456" width="35" height="34" fill="white"/>
+<text x="2120" y="471" font-family="Arial Unicode MS, Arial, sans-serif" font-size="37" text-anchor="middle" dominant-baseline="central" font-weight="400" fill="#416983">1</text>
+<rect x="2093" y="582" width="69" height="34" fill="white"/>
+<text x="2128" y="597" font-family="Arial Unicode MS, Arial, sans-serif" font-size="37" text-anchor="middle" dominant-baseline="central" font-weight="400" fill="#416983">0..*</text>
+<rect x="706" y="703" width="76" height="34" fill="white"/>
+<text x="744" y="718" font-family="Arial Unicode MS, Arial, sans-serif" font-size="37" text-anchor="middle" dominant-baseline="central" font-weight="400" fill="#416983">0..1</text>
+<rect x="772" y="778" width="69" height="34" fill="white"/>
+<text x="807" y="793" font-family="Arial Unicode MS, Arial, sans-serif" font-size="37" text-anchor="middle" dominant-baseline="central" font-weight="400" fill="#416983">0..*</text>
+<rect x="355" y="903" width="35" height="34" fill="white"/>
+<text x="373" y="918" font-family="Arial Unicode MS, Arial, sans-serif" font-size="37" text-anchor="middle" dominant-baseline="central" font-weight="400" fill="#416983">1</text>
+<rect x="320" y="1015" width="69" height="34" fill="white"/>
+<text x="355" y="1030" font-family="Arial Unicode MS, Arial, sans-serif" font-size="37" text-anchor="middle" dominant-baseline="central" font-weight="400" fill="#416983">0..*</text>
+<rect x="1470" y="703" width="76" height="34" fill="white"/>
+<text x="1508" y="718" font-family="Arial Unicode MS, Arial, sans-serif" font-size="37" text-anchor="middle" dominant-baseline="central" font-weight="400" fill="#416983">0..1</text>
+<rect x="1562" y="778" width="69" height="34" fill="white"/>
+<text x="1597" y="793" font-family="Arial Unicode MS, Arial, sans-serif" font-size="37" text-anchor="middle" dominant-baseline="central" font-weight="400" fill="#416983">0..*</text>
+<rect x="1104" y="903" width="35" height="34" fill="white"/>
+<text x="1122" y="918" font-family="Arial Unicode MS, Arial, sans-serif" font-size="37" text-anchor="middle" dominant-baseline="central" font-weight="400" fill="#416983">1</text>
+<rect x="1070" y="1015" width="69" height="34" fill="white"/>
+<text x="1105" y="1030" font-family="Arial Unicode MS, Arial, sans-serif" font-size="37" text-anchor="middle" dominant-baseline="central" font-weight="400" fill="#416983">0..*</text>
+<rect x="1382" y="902" width="35" height="34" fill="white"/>
+<text x="1400" y="917" font-family="Arial Unicode MS, Arial, sans-serif" font-size="37" text-anchor="middle" dominant-baseline="central" font-weight="400" fill="#416983">1</text>
+<rect x="1947" y="1015" width="76" height="34" fill="white"/>
+<text x="1985" y="1030" font-family="Arial Unicode MS, Arial, sans-serif" font-size="37" text-anchor="middle" dominant-baseline="central" font-weight="400" fill="#416983">0..1</text>
+<rect x="772" y="834" width="76" height="34" fill="white"/>
+<text x="810" y="849" font-family="Arial Unicode MS, Arial, sans-serif" font-size="37" text-anchor="middle" dominant-baseline="central" font-weight="400" fill="#416983">0..1</text>
+<rect x="961" y="1392" width="69" height="34" fill="white"/>
+<text x="996" y="1407" font-family="Arial Unicode MS, Arial, sans-serif" font-size="37" text-anchor="middle" dominant-baseline="central" font-weight="400" fill="#416983">0..*</text>
+<rect x="85" y="462" width="76" height="34" fill="white"/>
+<text x="123" y="477" font-family="Arial Unicode MS, Arial, sans-serif" font-size="37" text-anchor="middle" dominant-baseline="central" font-weight="400" fill="#727B86">0..1</text>
+<rect x="768" y="1513" width="69" height="34" fill="white"/>
+<text x="803" y="1528" font-family="Arial Unicode MS, Arial, sans-serif" font-size="37" text-anchor="middle" dominant-baseline="central" font-weight="400" fill="#727B86">0..*</text>
+<text x="1640" y="1400" font-family="Arial Unicode MS, Arial, sans-serif" font-size="39" text-anchor="start" dominant-baseline="central" font-weight="600" fill="#111827">端点基数与约束</text>
+<text x="1640" y="1450" font-family="Arial Unicode MS, Arial, sans-serif" font-size="34" text-anchor="start" dominant-baseline="central" font-weight="400" fill="#526477">1：必填单个    0..1：可空单个</text>
+<text x="1640" y="1493" font-family="Arial Unicode MS, Arial, sans-serif" font-size="34" text-anchor="start" dominant-baseline="central" font-weight="400" fill="#526477">0..*：零个或多个</text>
+<text x="1640" y="1544" font-family="Arial Unicode MS, Arial, sans-serif" font-size="34" text-anchor="start" dominant-baseline="central" font-weight="400" fill="#526477">包裹 → 运单复合外键：</text>
+<text x="1640" y="1587" font-family="Arial Unicode MS, Arial, sans-serif" font-size="34" text-anchor="start" dominant-baseline="central" font-weight="400" fill="#334155">(shipment_id, customer_id)</text>
+<text x="1640" y="1630" font-family="Arial Unicode MS, Arial, sans-serif" font-size="34" text-anchor="start" dominant-baseline="central" font-weight="400" fill="#526477">确保双方同属一个客户；</text>
+<text x="1640" y="1673" font-family="Arial Unicode MS, Arial, sans-serif" font-size="34" text-anchor="start" dominant-baseline="central" font-weight="400" fill="#526477">预报包裹可暂不配运单。</text>
+<text x="145" y="1395" font-family="Arial Unicode MS, Arial, sans-serif" font-size="34" text-anchor="start" dominant-baseline="central" font-weight="400" fill="#526477">灰框：Django 默认用户表</text>
+<text x="145" y="1439" font-family="Arial Unicode MS, Arial, sans-serif" font-size="34" text-anchor="start" dominant-baseline="central" font-weight="400" fill="#526477">其余 auth / session 等框架表省略；</text>
+<text x="145" y="1483" font-family="Arial Unicode MS, Arial, sans-serif" font-size="34" text-anchor="start" dominant-baseline="central" font-weight="400" fill="#526477">均由 Django migrate 创建。</text>
+</svg>
