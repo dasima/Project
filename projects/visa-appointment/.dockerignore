@@ -1,0 +1,12 @@
+**
+!backend/
+!backend/**
+!deploy/
+!deploy/Dockerfile
+**/__pycache__/
+**/*.py[cod]
+**/.env
+**/.env.*
+**/*.sqlite3
+**/staticfiles/
+**/.pytest_cache/

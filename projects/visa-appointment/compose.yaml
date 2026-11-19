@@ -1,0 +1,80 @@
+name: visa-appointment
+
+x-app: &app
+  build:
+    context: .
+    dockerfile: deploy/Dockerfile
+  image: visa-appointment:local
+  env_file:
+    - .env
+  environment:
+    DJANGO_DEBUG: "false"
+    DJANGO_SECRET_KEY: ${DJANGO_SECRET_KEY:?Run python3 scripts/bootstrap_env.py first}
+    DJANGO_ALLOWED_HOSTS: localhost,127.0.0.1,web
+    DJANGO_CSRF_TRUSTED_ORIGINS: http://localhost:8010,http://127.0.0.1:8010
+    # This Compose file is a local HTTP demonstration only.
+    COOKIE_SECURE: "false"
+    API_TOKEN: ${API_TOKEN:?Generate a private API token with bootstrap_env.py}
+    DEMO_PROVIDER_TOKEN: ${DEMO_PROVIDER_TOKEN:?Generate a private demo token with bootstrap_env.py}
+    DB_HOST: db
+    DB_PORT: "5432"
+    DB_NAME: ${DB_NAME:-visa_appointment}
+    DB_USER: ${DB_USER:-visa_appointment}
+    DB_PASSWORD: ${DB_PASSWORD:?Generate a private database password with bootstrap_env.py}
+    CRAWLER_ALLOWED_HOSTS: 127.0.0.1,localhost,web
+  volumes:
+    - runtime:/app/var
+  restart: unless-stopped
+  init: true
+  depends_on:
+    db:
+      condition: service_healthy
+
+services:
+  db:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: ${DB_NAME:-visa_appointment}
+      POSTGRES_USER: ${DB_USER:-visa_appointment}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:?Generate a private database password with bootstrap_env.py}
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U \"$$POSTGRES_USER\" -d \"$$POSTGRES_DB\""]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+
+  web:
+    <<: *app
+    ports:
+      - "127.0.0.1:8010:8000"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/healthz/', timeout=3).read()"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+
+  monitor:
+    <<: *app
+    command: ["python", "manage.py", "runworker", "--role", "monitor", "--interval", "1"]
+    depends_on:
+      db:
+        condition: service_healthy
+      web:
+        condition: service_healthy
+
+  booking:
+    <<: *app
+    command: ["python", "manage.py", "runworker", "--role", "booking", "--interval", "1"]
+    depends_on:
+      db:
+        condition: service_healthy
+      web:
+        condition: service_healthy
+
+volumes:
+  postgres:
+  runtime:

@@ -1,0 +1,86 @@
+name: Visa Appointment CI
+
+'on':
+  push:
+    paths:
+      - 'projects/visa-appointment/**'
+      - '.github/workflows/visa-appointment.yml'
+  pull_request:
+    paths:
+      - 'projects/visa-appointment/**'
+      - '.github/workflows/visa-appointment.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: visa-appointment-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    working-directory: projects/visa-appointment
+    shell: bash
+
+jobs:
+  backend:
+    name: Django and PostgreSQL tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    services:
+      postgres:
+        image: postgres:17-alpine
+        # Disposable public CI values; never deployment credentials.
+        env:
+          POSTGRES_DB: visa_appointment_ci
+          POSTGRES_USER: visa_appointment_ci
+          POSTGRES_PASSWORD: ci-only-postgres-password
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U visa_appointment_ci -d visa_appointment_ci"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      DJANGO_DEBUG: 'false'
+      DJANGO_SECRET_KEY: ci-only-django-secret-key-at-least-fifty-characters-never-deploy
+      DJANGO_ALLOWED_HOSTS: localhost,127.0.0.1,testserver
+      API_TOKEN: ci-only-api-token
+      ENABLE_DEMO_PROVIDER: 'false'
+      DEMO_PROVIDER_TOKEN: ci-only-demo-provider-token
+      CRAWLER_ALLOWED_HOSTS: 127.0.0.1,localhost
+      DB_HOST: 127.0.0.1
+      DB_PORT: '5432'
+      DB_NAME: visa_appointment_ci
+      DB_USER: visa_appointment_ci
+      DB_PASSWORD: ci-only-postgres-password
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: projects/visa-appointment/backend/requirements.txt
+      - name: Install backend dependencies
+        run: python -m pip install -r backend/requirements.txt
+      - name: Check Django configuration
+        run: python backend/manage.py check
+      - name: Check for missing migrations
+        run: python backend/manage.py makemigrations --check --dry-run
+      - name: Run tests including local HTTP integration
+        run: python backend/manage.py test apps --verbosity 2
+
+  compose:
+    name: Validate local Compose configuration
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Generate disposable private configuration
+        run: python scripts/bootstrap_env.py
+      - name: Validate without printing secrets
+        run: docker compose config --quiet
