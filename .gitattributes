@@ -4,3 +4,4 @@
 projects/parcelink/** text=auto eol=lf
 projects/parcelink/**/*.png binary
 projects/parcelink/**/*.docx binary
+projects/visa-appointment/** text=auto eol=lf

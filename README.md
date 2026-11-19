@@ -5,6 +5,7 @@
 ## 子项目
 
 - [Parcelink 集运系统](projects/parcelink/README.md)：Python / Django + PostgreSQL 集运查询与运营管理 Demo，支持客户登录、运单轨迹、多个客户账号与管理后台。
+- [Visa Appointment 留学签证预约系统](projects/visa-appointment/README.md)：法国、德国和英国留学签证预约监测与抢号方案，包含会话预备、低延迟执行及官方结果核验；当前处于系统设计阶段。
 
 集运系统的启动入口：
 
